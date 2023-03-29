@@ -1,1 +1,1 @@
-# FASTQ2Matrix
+# 2Matrix
