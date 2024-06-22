@@ -1,0 +1,17 @@
+#!/bin/bash
+# Run this file in bash with this command:  ./filename
+HOST=ftp.ebi.ac.uk
+USER=anonymous
+ftp -pinv $HOST <<EOF
+user $USER
+cd biostudies/fire/E-MTAB-/230/E-MTAB-8230/Files
+binary
+mget "genes.tsv"
+mget "consensus_hg38-panTro5-rheMac8.fa.gz"
+mget "metadata_nuclei.tsv"
+mget "nuclei_count_matrix.mtx.gz"
+mget "E-MTAB-8230.idf.txt"
+mget "E-MTAB-8230.sdrf.txt"
+disconnect
+bye
+EOF

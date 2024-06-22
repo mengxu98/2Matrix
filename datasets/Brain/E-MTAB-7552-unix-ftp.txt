@@ -1,0 +1,20 @@
+#!/bin/bash
+# Run this file in bash with this command:  ./filename
+HOST=ftp.ebi.ac.uk
+USER=anonymous
+ftp -pinv $HOST <<EOF
+user $USER
+cd biostudies/fire/E-MTAB-/552/E-MTAB-7552/Files
+binary
+mget "human_cell_counts_GRCh38.mtx"
+mget "genes_consensus.txt"
+mget "macaque_cell_counts_consensus.mtx"
+mget "human_cell_counts_consensus.mtx"
+mget "metadata_macaque_cells.tsv"
+mget "metadata_human_cells.tsv"
+mget "genes_GRCh38.txt"
+mget "chimp_cell_counts_consensus.mtx"
+mget "metadata_chimp_cells.tsv"
+disconnect
+bye
+EOF
